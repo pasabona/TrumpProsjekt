@@ -3,20 +3,86 @@
     <head>
         <title>Trump</title>
     </head>
-    <nav>
-
+    <nav id="navbar">
+        <ul>
+            <li><a href="https://www.google.no/"><button onclick="Joe()" id="blubtn">Joe Mama</button></a></li>
+            <li><a href="https://www.google.no/"><button onclick="Trump()" id="redbtn">Donald not Duck</button></a></li>
+        </ul>     
     </nav>
     <body>
-        <h1>Trump</h1>
+        <div id="Ho1"><font color="#0167FF">P</font><font color="#0E62F2">r</font><font color="#1C5CE4">e</font><font color="#2957D7">s</font><font color="#3652CA">i</font><font color="#444CBC">d</font><font color="#5147AF">e</font><font color="#5F41A1">n</font><font color="#6C3C94">t</font><font color="#793787">v</font><font color="#873179">a</font><font color="#942C6C">l</font><font color="#A1275F">g</font><font color="#AF2151">e</font><font color="#BC1C44">t</font><font color="#CA1636"> </font><font color="#D71129">2</font><font color="#E40C1C">0</font><font color="#F2060E">2</font><font color="#FF0101">0</font></div>    
+        <img src="pictures/trump.png" id="hb">
+        <br><br><br><br><br><br><br><br><br>
     </body>
     <style>
-        h1{
+        #Ho1{
             font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color:black;
-            font-size: 30px;
+            font-size: 50px;
+            text-align: center;
+        }
+        #hb{
+            width: 100%;    
+        }
+        body{
+            background-color: white;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 10;
+        }
+        li{
+            display: inline;
+        }
+        button{
+            font-size: 25px;
+            padding-right: 10px;
+            padding-left: 10px;
+            margin-left: 30px;
+            background-color: whitesmoke;
+            border: white;
+            border-radius: 10px;
+            transition-duration: 0.2s;
+        }
+        #blubtn:hover{
+            border-radius: 20px;
+            color: blue;
+        }
+        #redbtn:hover{
+            border-radius: 20px;
+            color: red;
+        }
+        nav{
+            top: -120px;
+            background-color: black;
+            padding: 40px;
+            float: center;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            left: 0;
+            right: 0;
+            transition: top 0.6s;
         }
     </style>
     <script>
+        function getRandomNumberBetween(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        window.onscroll = function() {scrollFunction()};
 
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-120px";
+            }
+        }
+        function Joe(){//scrolls to Joe's section
+            window.scrollTo(500, 0)
+        }
+        function Trump(){//scrolls to trump's section
+
+        }
     </script>
 </html>
