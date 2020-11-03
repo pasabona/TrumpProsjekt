@@ -4,34 +4,70 @@
         <title>Trump</title>
     </head>
     <nav id="navbar">
-        <ul>
-            <li><a href="https://www.google.no/"><button onclick="Joe()" id="blubtn">Joe Mama</button></a></li>
-            <li><a href="https://www.google.no/"><button onclick="Trump()" id="redbtn">Donald not Duck</button></a></li>
+        <ul class="navul">
+            <li class = "navlist"><button onclick="Joe(id)" id="blubtn">Joe Biden</button></li>
+            <li class = "navlist"><button onclick="Trump(id)" id="redbtn">Donald Trump</button></li>
         </ul>     
     </nav>
     <body>
         <div id="Ho1"><font color="#0167FF">P</font><font color="#0E62F2">r</font><font color="#1C5CE4">e</font><font color="#2957D7">s</font><font color="#3652CA">i</font><font color="#444CBC">d</font><font color="#5147AF">e</font><font color="#5F41A1">n</font><font color="#6C3C94">t</font><font color="#793787">v</font><font color="#873179">a</font><font color="#942C6C">l</font><font color="#A1275F">g</font><font color="#AF2151">e</font><font color="#BC1C44">t</font><font color="#CA1636"> </font><font color="#D71129">2</font><font color="#E40C1C">0</font><font color="#F2060E">2</font><font color="#FF0101">0</font></div>    
         <img src="pictures/trump.png" id="hb">
-        <br><br><br><br><br><br><br><br><br>
+        <div>
+            <img class = "pfp" src="pictures/BidenPfp.jpg">
+            <br><h1>Joe Biden</h1>
+            <p class="blocktext">Joseph Robinette «Joe» Biden jr. (født 20. november 1942 i Scranton i Pennsylvania i USA) er en amerikansk politiker. Han var USAs 47. visepresident, fra 2009 til 2017. Han er utdannet jurist og var tidligere senior-senator for delstaten Delaware for Det demokratiske parti. Han ble tildelt Presidentens frihetsmedalje med utmerkelse av Barack Obama 12. januar 2017 for sitt politiske arbeid. Det er den høyeste sivile utmerkelsen i USA.[13]</p>
+            <ul class="blocktext">
+                <li class="textlist">født 20. november 1942</li>
+                <li class="textlist">Demokrat</li>
+            </ul>
+        </div>
+        <br><br><br>
+        <div>
+            <img class = "pfp" src="pictures/TrumpPfp.jpg">
+            <br><h1>Donald Trump</h1>
+            <p class="blocktext">Joseph Robinette «Joe» Biden jr. (født 20. november 1942 i Scranton i Pennsylvania i USA) er en amerikansk politiker. Han var USAs 47. visepresident, fra 2009 til 2017. Han er utdannet jurist og var tidligere senior-senator for delstaten Delaware for Det demokratiske parti. Han ble tildelt Presidentens frihetsmedalje med utmerkelse av Barack Obama 12. januar 2017 for sitt politiske arbeid. Det er den høyeste sivile utmerkelsen i USA.[13]</p>
+            <ul class="blocktext">
+                <li class="textlist">født 14. juni 1946</li>
+                <li class="textlist">Republikaner</li>
+            </ul>
+        </div>
     </body>
     <style>
+        .blockul{
+            margin: 0;
+            padding: 10;
+        }
+        .blocktext{
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 110%;
+            padding-right: 100px;
+        }
+        .pfp{
+            margin-top: 2%;
+            width: 40%;
+            float: right;
+        }
         #Ho1{
             font-family: Verdana, Geneva, Tahoma, sans-serif;
             font-size: 50px;
             text-align: center;
         }
         #hb{
-            width: 100%;    
+            width: 100%;
         }
         body{
             background-color: white;
         }
-        ul {
+        h1{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 240%;
+        }
+        .navul {
             list-style-type: none;
             margin: 0;
             padding: 10;
         }
-        li{
+        .navlist{
             display: inline;
         }
         button{
@@ -47,6 +83,7 @@
         #blubtn:hover{
             border-radius: 20px;
             color: blue;
+            background-color: white;
         }
         #redbtn:hover{
             border-radius: 20px;
@@ -70,7 +107,9 @@
             return Math.floor(Math.random()*(max-min+1)+min);
         }
         window.onscroll = function() {scrollFunction()};
-
+        function pause(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
         function scrollFunction() {
             if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
                 document.getElementById("navbar").style.top = "0";
@@ -78,11 +117,22 @@
                 document.getElementById("navbar").style.top = "-120px";
             }
         }
-        function Joe(){//scrolls to Joe's section
-            window.scrollTo(500, 0)
+        function GotoY(y){
+            while (window.scrollY < y || window.scrollY > y){
+                if (window.scrollY < y){
+                    window.scrollTo(300, window.scrollY+1)
+                    pause(1)
+                }else if (window.scrollY > y){
+                    window.scrollTo(300, window.scrollY-1)
+                    pause(1)
+                }
+            }
         }
-        function Trump(){//scrolls to trump's section
-
+        function Joe(id){//scrolls to Joe's section
+            GotoY(480)
+        }
+        function Trump(id){//scrolls to trump's section
+            GotoY(860)
         }
     </script>
 </html>
